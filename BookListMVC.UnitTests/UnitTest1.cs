@@ -1,7 +1,12 @@
 using BookListMVC.Controllers;
 using BookListMVC.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq.Expressions;
+using System;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
+using Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces;
 
 namespace BookListMVC.UnitTests
 {

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookListMVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221115141500_initial")]
-    partial class initial
+    [Migration("20221228175057_first")]
+    partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

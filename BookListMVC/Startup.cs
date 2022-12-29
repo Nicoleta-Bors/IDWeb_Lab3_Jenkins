@@ -13,11 +13,27 @@ using Microsoft.Extensions.Hosting;
 
 namespace BookListMVC
 {
+    
+
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+        }
+
+        public static class DatabaseManagementService
+        {
+            // Getting the scope of our database context
+            public static void MigrationInitialisation(IApplicationBuilder app)
+            {
+                using (var serviceScope = app.ApplicationServices.CreateScope())
+                {
+                    // Takes all of our migrations files and apply them against the database in case they are not implemented
+                    serviceScope.ServiceProvider.GetService<ApplicationDbContext>().Database.Migrate();
+                }
+            }
         }
 
         public IConfiguration Configuration { get; }
@@ -44,6 +60,9 @@ namespace BookListMVC
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            DatabaseManagementService.MigrationInitialisation(app);
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
