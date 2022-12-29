@@ -1,7 +1,7 @@
-version: "3.9"  # optional since v1.27.0
+version: "3.3"  # optional since v1.27.0
 services:
   app-image:
-    image: nicoletabors02/idweb-lab4:lab4
+    image: app-image
     container_name: app-container
     ports:
       - "5000:80"

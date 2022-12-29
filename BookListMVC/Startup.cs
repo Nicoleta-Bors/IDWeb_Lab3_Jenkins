@@ -42,7 +42,7 @@ namespace BookListMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+                options => options.UseSqlServer(Configuration.GetConnectionString("Deploy"))
                 );
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
